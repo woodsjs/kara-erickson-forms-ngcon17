@@ -1,0 +1,19 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    {{ title }}!
+  </h1>
+</div>
+<router-outlet></router-outlet>
+
+<h3>Template Driven</h3>
+<app-custom-input name='test' ngModel></app-custom-input>
+
+<h3>Forms driven</h3>
+<!-- We need the ReactiveFormsModule in our app.module for formGroup to work -->
+<form [formGroup]="fg">
+  <app-custom-input formControlName="ourInput" ></app-custom-input>
+  <app-composite-cva formControlName="theAddress"></app-composite-cva>
+</form>
+<p>Input: {{ fg.get('ourInput').value }}</p>
+<p>The address object: {{ fg.get('theAddress').value | json }}</p>
